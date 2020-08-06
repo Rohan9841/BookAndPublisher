@@ -1,0 +1,27 @@
+package com.example.demo.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.model.Publisher;
+import com.example.demo.repositories.PublisherRepository;
+import com.example.demo.service.PublisherService;
+
+public class PublisherServiceImpl implements PublisherService{
+
+	@Autowired
+	PublisherRepository publisherRepo;
+	
+	@Override
+	public List<Publisher> findAllPublishers() {
+		List<Publisher> publishers = publisherRepo.findAll();
+		return (publishers.isEmpty()?null:publishers);
+	}
+
+	@Override
+	public Publisher save(Publisher publisher) {
+		return publisherRepo.save(publisher);
+	}
+	
+}

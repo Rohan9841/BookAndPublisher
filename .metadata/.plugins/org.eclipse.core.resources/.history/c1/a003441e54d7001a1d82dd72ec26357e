@@ -1,0 +1,33 @@
+package com.example.demo.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.BookDTO;
+import com.example.demo.model.Book;
+import com.example.demo.repositories.BookRepository;
+import com.example.demo.service.BookService;
+
+@Service("bookService")
+public class BookServiceImpl implements BookService{
+
+	@Autowired
+	BookRepository bookRepo;
+	
+	@Override
+	public List<Book> findAllBooks() {
+		List<Book> books = bookRepo.findAll();
+		return (books.isEmpty()?null:books);
+	}
+
+	@Override
+	public BookDTO save(Book book) {
+		Book book1 = bookRepo.save(book);
+		BookDTO bookDTO = new BookDTO(book1.getTitle(),book1.getIsbn(),book1.getAuthors(),book1.getPublisher());
+		return bookDTO;
+	}
+
+	
+}

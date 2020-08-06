@@ -1,0 +1,26 @@
+package com.example.demo.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.example.demo.model.Book;
+
+public class PublisherDTO {
+
+	String name;
+	String addressLine;
+	String city;
+	String state;
+	int zip;
+	
+	public PublisherDTO(String name, String addressLine, String city, String state, int zip) {
+		super();
+		this.name = name;
+		this.addressLine = addressLine;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
+	
+	
+}

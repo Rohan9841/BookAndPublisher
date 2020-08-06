@@ -1,0 +1,23 @@
+package com.example.demo.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.example.demo.model.Author;
+import com.example.demo.model.Publisher;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class BookDTO {
+
+	Long id;
+	String title;
+	String isbn;
+	Set<Author> authors = new HashSet<>();
+	Publisher publisher;
+}

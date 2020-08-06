@@ -1,0 +1,66 @@
+package com.example.demo.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.stereotype.Component;
+
+import com.example.demo.model.Author;
+import com.example.demo.model.Publisher;
+
+@Component
+public class BookDTO {
+
+	String title;
+	String isbn;
+	Set<Author> authors = new HashSet<>();
+	Publisher publisher;
+	
+	public BookDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public BookDTO(String title, String isbn, Set<Author> authors, Publisher publisher) {
+		super();
+		this.title = title;
+		this.isbn = isbn;
+		this.authors = authors;
+		this.publisher = publisher;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
+	}
+
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+	
+	
+	
+}

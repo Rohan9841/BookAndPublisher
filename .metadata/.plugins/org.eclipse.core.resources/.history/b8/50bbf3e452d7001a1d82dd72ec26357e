@@ -1,0 +1,40 @@
+package com.example.demo.serviceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.PublisherDTO;
+import com.example.demo.model.Publisher;
+import com.example.demo.repositories.PublisherRepository;
+import com.example.demo.service.PublisherService;
+
+@Service("publisherService")
+public class PublisherServiceImpl implements PublisherService {
+
+	@Autowired
+	PublisherRepository publisherRepo;
+
+	@Override
+	public List<Publisher> findAllPublishers() {
+		List<Publisher> publishers = publisherRepo.findAll();
+		return (publishers.isEmpty() ? null : publishers);
+	}
+
+	@Override
+	public PublisherDTO save(PublisherDTO publisherDTO) {
+		Publisher publisher1 = publisherRepo.save(publisher);
+		PublisherDTO publisherDTO = new PublisherDTO(publisher1.getName(), publisher1.getAddressLine(),
+				publisher1.getCity(), publisher1.getState(), publisher1.getZip());
+		return publisherDTO;
+	}
+
+	@Override
+	public Publisher findById(Long id) {
+		Optional<Publisher> optPublisher = publisherRepo.findById(id);
+		return (optPublisher.isPresent() ? optPublisher.get() : null);
+	}
+
+}

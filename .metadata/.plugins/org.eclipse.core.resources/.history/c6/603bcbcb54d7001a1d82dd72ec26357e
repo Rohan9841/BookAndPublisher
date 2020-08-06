@@ -1,0 +1,27 @@
+package com.example.demo.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.stereotype.Component;
+
+import com.example.demo.model.Author;
+import com.example.demo.model.Publisher;
+
+@Component
+public class BookDTO {
+
+	String title;
+	String isbn;
+	Set<Author> authors = new HashSet<>();
+	Publisher publisher;
+	
+	public BookDTO(String title, String isbn, Set<Author> authors, Publisher publisher) {
+		super();
+		this.title = title;
+		this.isbn = isbn;
+		this.authors = authors;
+		this.publisher = publisher;
+	}
+	
+}

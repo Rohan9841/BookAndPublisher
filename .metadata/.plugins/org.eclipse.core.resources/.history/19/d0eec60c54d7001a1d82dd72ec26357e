@@ -1,0 +1,21 @@
+package com.example.demo.dto;
+
+public class PublisherDTO {
+
+	String name;
+	String addressLine;
+	String city;
+	String state;
+	int zip;
+	
+	public PublisherDTO(String name, String addressLine, String city, String state, int zip) {
+		super();
+		this.name = name;
+		this.addressLine = addressLine;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
+	
+	
+}

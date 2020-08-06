@@ -1,0 +1,57 @@
+package com.example.demo.serviceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.PublisherDTO;
+import com.example.demo.model.Publisher;
+import com.example.demo.repositories.PublisherRepository;
+import com.example.demo.service.PublisherService;
+
+@Service("publisherService")
+public class PublisherServiceImpl implements PublisherService {
+
+	@Autowired
+	PublisherRepository publisherRepo;
+
+	@Autowired
+	PublisherDTO publisherDTO;
+	
+	@Override
+	public List<PublisherDTO> findAllPublishers() {
+		List<Publisher> publishers = publisherRepo.findAll();
+		List<PublisherDTO> publisherDTOlist = new ArrayList<>();
+		
+		publishers.forEach(p->{
+			publisherDTOlist.add(convertPublisherToDTO(p));
+		});
+		return publisherDTOlist;
+	}
+
+	@Override
+	public PublisherDTO save(Publisher publisher) {
+		Publisher publisher1 = publisherRepo.save(publisher);
+		return convertPublisherToDTO(publisher1);
+	}
+
+	@Override
+	public Publisher findById(Long id) {
+		Optional<Publisher> optPublisher = publisherRepo.findById(id);
+		return (optPublisher.isPresent() ? optPublisher.get() : null);
+	}
+	
+	PublisherDTO convertPublisherToDTO(Publisher publisher) {
+		publisherDTO.setName(publisher.getName());
+		publisherDTO.setAddressLine(publisher.getAddressLine());
+		publisherDTO.setCity(publisher.getCity());
+		publisherDTO.setState(publisher.getState());
+		publisherDTO.setZip(publisher.getZip());
+		
+		return publisherDTO;
+	}
+
+}

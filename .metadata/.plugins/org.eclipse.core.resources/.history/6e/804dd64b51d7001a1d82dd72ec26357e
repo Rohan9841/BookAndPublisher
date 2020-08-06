@@ -1,0 +1,16 @@
+package com.example.demo.dto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.example.demo.model.Author;
+import com.example.demo.model.Publisher;
+
+public class BookDTO {
+
+	Long id;
+	String title;
+	String isbn;
+	Set<Author> authors = new HashSet<>();
+	Publisher publisher;
+}
