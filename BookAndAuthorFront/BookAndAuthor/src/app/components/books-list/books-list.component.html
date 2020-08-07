@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Books</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Isbn</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.title}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.publisherDTO.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="row">
+        <button class="btn btn-success" (click)="addBook()">Add Book</button>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+<h2>Add Publisher</h2>
+<div class = "container">
+    <form (ngSubmit)="savePublisher()" class = "form">
+        <fieldset class = "form-group">
+            <label>Name</label>
+            <input type = "text" name = "name" class = "form-control" [(ngModel)]="publisher.name">
+        </fieldset>
+        
+        <fieldset class = "form-group">
+            <label>Address Line</label>
+            <input type = "text" name = "addressLine" class = "form-control" [(ngModel)]="publisher.addressLine">
+        </fieldset>
+
+        <fieldset class = "form-group">
+            <label>City</label>
+            <input type = "text" name = "city" class = "form-control" [(ngModel)]="publisher.city">
+        </fieldset>
+        
+        <fieldset class = "form-group">
+            <label>State</label>
+            <input type = "text" name = "state" class = "form-control" [(ngModel)]="publisher.state">
+        </fieldset>
+
+        <fieldset class = "form-group">
+            <label>Zip</label>
+            <input type = "number" name = "zip" class = "form-control" [(ngModel)]="publisher.zip">
+        </fieldset>
+
+        <button type = "submit" class = "btn btn-success">save</button>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<h2>Add Book</h2>
+<div class = "container">
+    <form (ngSubmit)="saveBook()" class = "form">
+        <fieldset class = "form-group">
+            <label>Title</label>
+            <input type = "text" name = "title" class = "form-control" [(ngModel)]="book.title">
+        </fieldset>
+        
+        <fieldset class = "form-group">
+            <label>Isbn</label>
+            <input type = "text" name = "isbn" class = "form-control" [(ngModel)]="book.isbn">
+        </fieldset>
+
+        <fieldset class = "form-group">
+            <label>Publisher</label>
+            <select class = "custom-select" name = "publish" [(ngModel)]="book.publisher">
+                <option value = "" disabled>Choose publisher</option>
+                <option *ngFor = "let pub of publishers" [ngValue] = "pub">{{pub.name}}</option>
+            </select>
+        </fieldset>
+        <button type = "submit" class = "btn btn-success">save</button>
+    </form>
+</div>

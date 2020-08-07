@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Publishers</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address Line</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let publisher of publishers">
+                <td>{{publisher.name}}</td>
+                <td>{{publisher.addressLine}}</td>
+                <td>{{publisher.city}}</td>
+                <td>{{publisher.state}}</td>
+                <td>{{publisher.zip}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="row">
+        <button class="btn btn-success" (click)="addPublisher()">Add Publisher</button>
+    </div>
+
+</div>
